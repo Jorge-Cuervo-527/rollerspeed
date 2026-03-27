@@ -3,20 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Roller Speed</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 
-    <h1>Bienvenido a Roller Speed 🛼</h1>
+<nav class="navbar">
+    <div class="logo">
+        <a href="/">Roller Speed</a>
+    </div>
 
-    <nav>
-        <ul>
-            <li><a href="/mision">Misión</a></li>
-            <li><a href="/vision">Visión</a></li>
-            <li><a href="/valores">Valores</a></li>
-            <li><a href="/servicios">Servicios</a></li>
-            <li><a href="/eventos">Eventos</a></li>
-        </ul>
-    </nav>
+    <ul class="nav-links">
+        <li><a href="/">Inicio</a></li>
+
+        <li class="dropdown">
+            <a href="#">Valores corporativos</a>
+            <ul class="dropdown-menu">
+                <li><a href="/mision">Misión</a></li>
+                <li><a href="/vision">Visión</a></li>
+                <li><a href="/valores">Valores</a></li>
+            </ul>
+        </li>
+
+        <li><a href="/servicios">Servicios</a></li>
+        <li><a href="/eventos">Eventos</a></li>
+    </ul>
+</nav>
+
+<main class="content-box">
+    <h1>Bienvenido a Roller Speed 🛼</h1>
 
     <p>
         Bienvenido a Roller Speed, un espacio dedicado a la formación deportiva y al desarrollo integral
@@ -25,6 +39,7 @@
         Te invitamos a conocer más sobre nuestra misión, visión, servicios y eventos, y a ser parte de
         nuestra comunidad.
     </p>
+</main>
 
 </body>
 </html>

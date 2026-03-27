@@ -3,21 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Misión - Roller Speed</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 
-    <h1>Misión</h1>
+<nav class="navbar">
+    <div class="logo">
+        <a href="/">Roller Speed</a>
+    </div>
 
-    <nav>
-        <ul>
-            <li><a href="/">Inicio</a></li>
-            <li><a href="/mision">Misión</a></li>
-            <li><a href="/vision">Visión</a></li>
-            <li><a href="/valores">Valores</a></li>
-            <li><a href="/servicios">Servicios</a></li>
-            <li><a href="/eventos">Eventos</a></li>
-        </ul>
-    </nav>
+    <ul class="nav-links">
+        <li><a href="/">Inicio</a></li>
+
+        <li class="dropdown">
+            <a href="#">Valores corporativos</a>
+            <ul class="dropdown-menu">
+                <li><a href="/mision">Misión</a></li>
+                <li><a href="/vision">Visión</a></li>
+                <li><a href="/valores">Valores</a></li>
+            </ul>
+        </li>
+
+        <li><a href="/servicios">Servicios</a></li>
+        <li><a href="/eventos">Eventos</a></li>
+    </ul>
+</nav>
+
+<main class="content-box">
+    <h1>Misión</h1>
 
     <p>
         En Roller Speed, nuestra misión es formar deportistas integrales en el patinaje,
@@ -26,6 +39,7 @@
         promoviendo su crecimiento personal, deportivo y social en un entorno seguro,
         inclusivo y motivador.
     </p>
+</main>
 
 </body>
 </html>

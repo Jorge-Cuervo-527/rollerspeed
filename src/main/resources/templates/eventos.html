@@ -3,21 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Eventos - Roller Speed</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 
-    <h1>Eventos</h1>
+<nav class="navbar">
+    <div class="logo">
+        <a href="/">Roller Speed</a>
+    </div>
 
-    <nav>
-        <ul>
-            <li><a href="/">Inicio</a></li>
-            <li><a href="/mision">Misión</a></li>
-            <li><a href="/vision">Visión</a></li>
-            <li><a href="/valores">Valores</a></li>
-            <li><a href="/servicios">Servicios</a></li>
-            <li><a href="/eventos">Eventos</a></li>
-        </ul>
-    </nav>
+    <ul class="nav-links">
+        <li><a href="/">Inicio</a></li>
+
+        <li class="dropdown">
+            <a href="#">Valores corporativos</a>
+            <ul class="dropdown-menu">
+                <li><a href="/mision">Misión</a></li>
+                <li><a href="/vision">Visión</a></li>
+                <li><a href="/valores">Valores</a></li>
+            </ul>
+        </li>
+
+        <li><a href="/servicios">Servicios</a></li>
+        <li><a href="/eventos">Eventos</a></li>
+    </ul>
+</nav>
+
+<main class="content-box">
+    <h1>Eventos</h1>
 
     <p>
         En Roller Speed organizamos y participamos en diferentes eventos deportivos
@@ -31,6 +44,7 @@
         <li><strong>Exhibiciones:</strong> Presentaciones para mostrar el talento de nuestros estudiantes.</li>
         <li><strong>Capacitaciones:</strong> Talleres y entrenamientos especializados.</li>
     </ul>
+</main>
 
 </body>
 </html>
