@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Roller Speed</title>
+    <title>Horario de Estudiantes - Roller Speed</title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
@@ -54,14 +54,9 @@
 </nav>
 
 <main class="content-box">
-    <h1>Bienvenido a Roller Speed 🛼</h1>
-
+    <h1>Horario de Clases para Estudiantes</h1>
     <p>
-        Bienvenido a Roller Speed, un espacio dedicado a la formación deportiva y al desarrollo integral
-        de nuestros estudiantes. Aquí encontrarás un entorno pensado para fortalecer habilidades en el
-        patinaje, promover valores fundamentales y acompañar el crecimiento personal de cada deportista.
-        Te invitamos a conocer más sobre nuestra misión, visión, servicios, eventos, procesos de registro
-        y horarios de clase, y a ser parte de nuestra comunidad.
+        En esta sección los estudiantes podrán consultar sus horarios de clase.
     </p>
 </main>
 
