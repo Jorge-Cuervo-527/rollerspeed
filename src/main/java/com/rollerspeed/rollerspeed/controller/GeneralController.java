@@ -6,10 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class GeneralController {
 
-    @GetMapping("/registro/instructor")
-    public String registroInstructor() {
-        return "registro/instructor";
-    }
 
     @GetMapping("/registro/clases")
     public String registroClases() {

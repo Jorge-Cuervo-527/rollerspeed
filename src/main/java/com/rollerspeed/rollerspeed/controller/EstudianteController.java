@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class EstudianteController {
@@ -24,7 +25,15 @@ public class EstudianteController {
         model.addAttribute("estudiante", new Estudiante());
         return "estudiantes/registro";
     }
+
+    @PostMapping("/registro/estudiante")
+    public String guardarEstudiante(Estudiante estudiante) {
+    estudianteService.guardarEstudiante(estudiante);
+    return "redirect:/estudiantes";
 }
+}
+
+
 
 //este controller Tiene dos rutas:
 // /estudiantes: --consulta todos los estudiantes desde el service y los manda a la vista con el nombre listaEstudiantes

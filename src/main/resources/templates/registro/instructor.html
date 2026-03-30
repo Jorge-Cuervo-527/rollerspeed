@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Inscripción de Instructor - Roller Speed</title>
@@ -40,6 +40,7 @@
             <a href="#">Estudiantes</a>
             <ul class="dropdown-menu">
                 <li><a href="/estudiantes">Listar Estudiantes</a></li>
+                <li><a href="/instructores">Listar Instructores</a></li>
             </ul>
         </li>
 
@@ -55,9 +56,35 @@
 
 <main class="content-box">
     <h1>Inscripción de Instructor</h1>
-    <p>
-        En esta sección se realizará el registro de instructores de la escuela Roller Speed.
-    </p>
+
+    <form th:action="@{/registro/instructor}" th:object="${instructor}" method="post">
+        <div style="margin-bottom: 15px;">
+            <label>Nombre:</label><br>
+            <input type="text" th:field="*{nombre}" style="width:100%; padding:8px;" required>
+        </div>
+
+        <div style="margin-bottom: 15px;">
+            <label>Apellido:</label><br>
+            <input type="text" th:field="*{apellido}" style="width:100%; padding:8px;" required>
+        </div>
+
+        <div style="margin-bottom: 15px;">
+            <label>Correo:</label><br>
+            <input type="email" th:field="*{correo}" style="width:100%; padding:8px;" required>
+        </div>
+
+        <div style="margin-bottom: 15px;">
+            <label>Teléfono:</label><br>
+            <input type="text" th:field="*{telefono}" style="width:100%; padding:8px;" required>
+        </div>
+
+        <div style="margin-bottom: 15px;">
+            <label>Especialidad:</label><br>
+            <input type="text" th:field="*{especialidad}" style="width:100%; padding:8px;" required>
+        </div>
+
+        <button type="submit" style="padding:10px 20px;">Registrar Instructor</button>
+    </form>
 </main>
 
 </body>

@@ -40,6 +40,7 @@
             <a href="#">Estudiantes</a>
             <ul class="dropdown-menu">
                 <li><a href="/estudiantes">Listar Estudiantes</a></li>
+                <li><a href="/instructores">Listar Instructores</a></li>
             </ul>
         </li>
 
@@ -56,37 +57,37 @@
 <main class="content-box">
     <h1>Inscripción de Estudiantes</h1>
 
-    <form>
+    <form th:action="@{/registro/estudiante}" th:object="${estudiante}" method="post">
         <div style="margin-bottom: 15px;">
             <label>Nombre:</label><br>
-            <input type="text" name="nombre" style="width:100%; padding:8px;">
+            <input type="text" th:field="*{nombre}" style="width:100%; padding:8px;" required>
         </div>
-
+    
         <div style="margin-bottom: 15px;">
             <label>Apellido:</label><br>
-            <input type="text" name="apellido" style="width:100%; padding:8px;">
+            <input type="text" th:field="*{apellido}" style="width:100%; padding:8px;" required>
         </div>
-
+    
         <div style="margin-bottom: 15px;">
             <label>Correo:</label><br>
-            <input type="email" name="correo" style="width:100%; padding:8px;">
+            <input type="email" th:field="*{correo}" style="width:100%; padding:8px;" required>
         </div>
-
+    
         <div style="margin-bottom: 15px;">
             <label>Teléfono:</label><br>
-            <input type="text" name="telefono" style="width:100%; padding:8px;">
+            <input type="text" th:field="*{telefono}" style="width:100%; padding:8px;" required>
         </div>
-
+    
         <div style="margin-bottom: 15px;">
             <label>Género:</label><br>
-            <select name="genero" style="width:100%; padding:8px;">
+            <select th:field="*{genero}" style="width:100%; padding:8px;" required>
                 <option value="">Seleccione</option>
                 <option value="Masculino">Masculino</option>
                 <option value="Femenino">Femenino</option>
                 <option value="Otro">Otro</option>
             </select>
         </div>
-
+    
         <button type="submit" style="padding:10px 20px;">Registrar</button>
     </form>
 </main>
