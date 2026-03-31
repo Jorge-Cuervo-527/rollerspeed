@@ -2,7 +2,7 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Listar Estudiantes - Roller Speed</title>
+    <title>Listar Clases - Roller Speed</title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
@@ -36,7 +36,6 @@
             </ul>
         </li>
 
-
         <li class="dropdown">
             <a href="#">Estudiantes</a>
             <ul class="dropdown-menu">
@@ -57,27 +56,25 @@
 </nav>
 
 <main class="content-box">
-    <h1>Lista de Estudiantes</h1>
+    <h1>Lista de Clases</h1>
 
     <table border="1" style="width:100%; border-collapse: collapse; text-align:center;">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Correo</th>
-                <th>Teléfono</th>
-                <th>Género</th>
+                <th>Nivel</th>
+                <th>Horario</th>
+                <th>Instructor</th>
             </tr>
         </thead>
         <tbody>
-            <tr th:each="estudiante : ${listaEstudiantes}">
-                <td th:text="${estudiante.id}"></td>
-                <td th:text="${estudiante.nombre}"></td>
-                <td th:text="${estudiante.apellido}"></td>
-                <td th:text="${estudiante.correo}"></td>
-                <td th:text="${estudiante.telefono}"></td>
-                <td th:text="${estudiante.genero}"></td>
+            <tr th:each="clase : ${listaClases}">
+                <td th:text="${clase.id}"></td>
+                <td th:text="${clase.nombre}"></td>
+                <td th:text="${clase.nivel}"></td>
+                <td th:text="${clase.horario}"></td>
+                <td th:text="${clase.instructor}"></td>
             </tr>
         </tbody>
     </table>

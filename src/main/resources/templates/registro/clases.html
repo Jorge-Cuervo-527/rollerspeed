@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Registro de Clases - Roller Speed</title>
@@ -41,6 +41,7 @@
             <ul class="dropdown-menu">
                 <li><a href="/estudiantes">Listar Estudiantes</a></li>
                 <li><a href="/instructores">Listar Instructores</a></li>
+                <li><a href="/clases">Listar Clases</a></li>
             </ul>
         </li>
 
@@ -56,9 +57,30 @@
 
 <main class="content-box">
     <h1>Registro de Clases</h1>
-    <p>
-        En esta sección se gestionará la creación y programación de clases de la escuela.
-    </p>
+
+    <form th:action="@{/registro/clases}" th:object="${clase}" method="post">
+        <div style="margin-bottom: 15px;">
+            <label>Nombre de la clase:</label><br>
+            <input type="text" th:field="*{nombre}" style="width:100%; padding:8px;" required>
+        </div>
+
+        <div style="margin-bottom: 15px;">
+            <label>Nivel:</label><br>
+            <input type="text" th:field="*{nivel}" style="width:100%; padding:8px;" required>
+        </div>
+
+        <div style="margin-bottom: 15px;">
+            <label>Horario:</label><br>
+            <input type="text" th:field="*{horario}" style="width:100%; padding:8px;" required>
+        </div>
+
+        <div style="margin-bottom: 15px;">
+            <label>Instructor:</label><br>
+            <input type="text" th:field="*{instructor}" style="width:100%; padding:8px;" required>
+        </div>
+
+        <button type="submit" style="padding:10px 20px;">Registrar Clase</button>
+    </form>
 </main>
 
 </body>

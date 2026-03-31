@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Horario de Instructor - Roller Speed</title>
@@ -41,6 +41,7 @@
             <ul class="dropdown-menu">
                 <li><a href="/estudiantes">Listar Estudiantes</a></li>
                 <li><a href="/instructores">Listar Instructores</a></li>
+                <li><a href="/clases">Listar Clases</a></li>
             </ul>
         </li>
 
@@ -56,9 +57,27 @@
 
 <main class="content-box">
     <h1>Horario de Clases para Instructor</h1>
-    <p>
-        En esta sección los instructores podrán consultar el horario de sus clases asignadas.
-    </p>
+
+    <table border="1" style="width:100%; border-collapse: collapse; text-align:center;">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Clase</th>
+                <th>Nivel</th>
+                <th>Horario</th>
+                <th>Instructor</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="clase : ${listaClases}">
+                <td th:text="${clase.id}"></td>
+                <td th:text="${clase.nombre}"></td>
+                <td th:text="${clase.nivel}"></td>
+                <td th:text="${clase.horario}"></td>
+                <td th:text="${clase.instructor}"></td>
+            </tr>
+        </tbody>
+    </table>
 </main>
 
 </body>
