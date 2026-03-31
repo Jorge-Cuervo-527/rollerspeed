@@ -26,6 +26,6 @@ public class EstudianteService {
 
 
 //@Service → capa de lógica del negocio --@Autowired → inyección del repository
-//findAll() → trae todos los registros de la BD  --save() → guarda datos en la BD
+//findAll() → trae todos los registros de la BD y el save() → guarda datos en la BD
 
 //Ya estamos conectando: Controller → Service → Repository → Base de Datos
