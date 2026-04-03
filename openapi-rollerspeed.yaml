@@ -1,0 +1,328 @@
+openapi: 3.0.3
+info:
+  title: Documentación OpenAPI - RollerSpeed
+  version: 1.0.0
+  description: |
+    Documentación manual del proyecto RollerSpeed elaborada sin modificar el código fuente.
+    El sistema está construido con Spring Boot, Thymeleaf y controladores MVC que retornan vistas HTML.
+    Por eso, los endpoints de registro reciben datos de formularios con content-type
+    application/x-www-form-urlencoded y las respuestas exitosas suelen redirigir a otra ruta.
+servers:
+  - url: http://localhost:8081
+    description: Servidor local configurado en application.properties
+
+tags:
+  - name: Inicio
+    description: Páginas generales del sitio
+  - name: Estudiantes
+    description: Gestión y registro de estudiantes
+  - name: Instructores
+    description: Gestión y registro de instructores
+  - name: Clases
+    description: Gestión y registro de clases
+  - name: Horarios
+    description: Consulta de horarios
+
+paths:
+  /:
+    get:
+      tags: [Inicio]
+      summary: Mostrar página de inicio
+      description: Retorna la vista principal index del sitio RollerSpeed.
+      responses:
+        '200':
+          description: Página cargada correctamente
+          content:
+            text/html:
+              schema:
+                type: string
+
+  /mision:
+    get:
+      tags: [Inicio]
+      summary: Mostrar página misión
+      responses:
+        '200':
+          description: Página misión cargada correctamente
+          content:
+            text/html:
+              schema:
+                type: string
+
+  /vision:
+    get:
+      tags: [Inicio]
+      summary: Mostrar página visión
+      responses:
+        '200':
+          description: Página visión cargada correctamente
+          content:
+            text/html:
+              schema:
+                type: string
+
+  /valores:
+    get:
+      tags: [Inicio]
+      summary: Mostrar página valores
+      responses:
+        '200':
+          description: Página valores cargada correctamente
+          content:
+            text/html:
+              schema:
+                type: string
+
+  /servicios:
+    get:
+      tags: [Inicio]
+      summary: Mostrar página servicios
+      responses:
+        '200':
+          description: Página servicios cargada correctamente
+          content:
+            text/html:
+              schema:
+                type: string
+
+  /eventos:
+    get:
+      tags: [Inicio]
+      summary: Mostrar página eventos
+      responses:
+        '200':
+          description: Página eventos cargada correctamente
+          content:
+            text/html:
+              schema:
+                type: string
+
+  /estudiantes:
+    get:
+      tags: [Estudiantes]
+      summary: Listar estudiantes
+      description: Consulta todos los estudiantes registrados y retorna la vista estudiantes/listar.
+      responses:
+        '200':
+          description: Listado de estudiantes mostrado correctamente
+          content:
+            text/html:
+              schema:
+                type: string
+
+  /registro/estudiante:
+    get:
+      tags: [Estudiantes]
+      summary: Mostrar formulario de registro de estudiante
+      description: Carga la vista estudiantes/registro con un objeto estudiante vacío.
+      responses:
+        '200':
+          description: Formulario cargado correctamente
+          content:
+            text/html:
+              schema:
+                type: string
+    post:
+      tags: [Estudiantes]
+      summary: Registrar estudiante
+      description: Guarda un nuevo estudiante enviado desde un formulario HTML y redirige al listado.
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/EstudianteForm'
+      responses:
+        '302':
+          description: Estudiante guardado y redirección a /estudiantes
+        '400':
+          description: Datos inválidos o incompletos
+        '500':
+          description: Error interno al guardar el estudiante
+
+  /instructores:
+    get:
+      tags: [Instructores]
+      summary: Listar instructores
+      description: Consulta todos los instructores registrados y retorna la vista instructores/listar.
+      responses:
+        '200':
+          description: Listado de instructores mostrado correctamente
+          content:
+            text/html:
+              schema:
+                type: string
+
+  /registro/instructor:
+    get:
+      tags: [Instructores]
+      summary: Mostrar formulario de registro de instructor
+      description: Carga la vista registro/instructor con un objeto instructor vacío.
+      responses:
+        '200':
+          description: Formulario cargado correctamente
+          content:
+            text/html:
+              schema:
+                type: string
+    post:
+      tags: [Instructores]
+      summary: Registrar instructor
+      description: Guarda un nuevo instructor enviado desde un formulario HTML y redirige al listado.
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/InstructorForm'
+      responses:
+        '302':
+          description: Instructor guardado y redirección a /instructores
+        '400':
+          description: Datos inválidos o incompletos
+        '500':
+          description: Error interno al guardar el instructor
+
+  /clases:
+    get:
+      tags: [Clases]
+      summary: Listar clases
+      description: Consulta todas las clases registradas y retorna la vista clases/listar.
+      responses:
+        '200':
+          description: Listado de clases mostrado correctamente
+          content:
+            text/html:
+              schema:
+                type: string
+
+  /registro/clases:
+    get:
+      tags: [Clases]
+      summary: Mostrar formulario de registro de clases
+      description: Carga la vista registro/clases con un objeto clase vacío.
+      responses:
+        '200':
+          description: Formulario cargado correctamente
+          content:
+            text/html:
+              schema:
+                type: string
+    post:
+      tags: [Clases]
+      summary: Registrar clase
+      description: Guarda una nueva clase enviada desde un formulario HTML y redirige al listado.
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ClaseForm'
+      responses:
+        '302':
+          description: Clase guardada y redirección a /clases
+        '400':
+          description: Datos inválidos o incompletos
+        '500':
+          description: Error interno al guardar la clase
+
+  /horarios/estudiantes:
+    get:
+      tags: [Horarios]
+      summary: Mostrar horario para estudiantes
+      description: Consulta la lista de clases y retorna la vista horarios/estudiantes.
+      responses:
+        '200':
+          description: Horario de estudiantes mostrado correctamente
+          content:
+            text/html:
+              schema:
+                type: string
+
+  /horarios/instructor:
+    get:
+      tags: [Horarios]
+      summary: Mostrar horario para instructores
+      description: Consulta la lista de clases y retorna la vista horarios/instructor.
+      responses:
+        '200':
+          description: Horario de instructor mostrado correctamente
+          content:
+            text/html:
+              schema:
+                type: string
+
+components:
+  schemas:
+    EstudianteForm:
+      type: object
+      required:
+        - nombre
+        - apellido
+        - correo
+        - telefono
+        - genero
+      properties:
+        nombre:
+          type: string
+          example: Juan
+        apellido:
+          type: string
+          example: Pérez
+        correo:
+          type: string
+          format: email
+          example: juan.perez@correo.com
+        telefono:
+          type: string
+          example: 3001234567
+        genero:
+          type: string
+          example: Masculino
+
+    InstructorForm:
+      type: object
+      required:
+        - nombre
+        - apellido
+        - correo
+        - telefono
+        - especialidad
+      properties:
+        nombre:
+          type: string
+          example: Laura
+        apellido:
+          type: string
+          example: Gómez
+        correo:
+          type: string
+          format: email
+          example: laura.gomez@rollerspeed.com
+        telefono:
+          type: string
+          example: 3019876543
+        especialidad:
+          type: string
+          example: Patinaje artístico
+
+    ClaseForm:
+      type: object
+      required:
+        - nombre
+        - nivel
+        - horario
+        - instructor
+      properties:
+        nombre:
+          type: string
+          example: Patinaje básico
+        nivel:
+          type: string
+          example: Inicial
+        horario:
+          type: string
+          example: Lunes a viernes 4:00 PM
+        instructor:
+          type: string
+          example: Laura Gómez
